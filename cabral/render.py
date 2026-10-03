@@ -55,7 +55,7 @@ def prep(path):
 
 cache = {}
 def frame_img(path, t, d, seed):
-    if path not in cache: cache[path] = prep(path)
+    if path not in cache: cache[path] = prep(glob.glob(os.path.join(HERE, os.path.splitext(path)[0] + ".*"))[0])
     im = cache[path]
     p = t / d
     z = 1.0 + 0.08 * p
